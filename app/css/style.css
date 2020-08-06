@@ -47,7 +47,8 @@ button.navbar-toggler:focus {
 .slogan-left {
     background-image: url(../imgs/header-side.jpg);
     background-repeat: no-repeat;
-    background-position-x: -115px;
+    background-size: contain;
+    /* background-position-x: -115px; */
     /* background-position-x: -98px; */
 }
 
@@ -74,7 +75,7 @@ hr {
 
 .who-image {
     width: 450px;
-    margin: 50px 54px 0 0;
+    margin: 50px 0 0 0;
 }
 
 .about-left {
@@ -99,6 +100,15 @@ hr {
     margin: 106px 5px;
 }
 
+.offers img {
+    text-align: center;
+    width: 46% !important;
+}
+
+.offers h3 {
+    color: rgba(58, 173, 230, 1) !important;
+}
+
 .about {
     color: #000 !important;
     font-weight: bold;
@@ -112,6 +122,24 @@ hr {
 .offers img {
     width: 40%;
     margin: 20px auto;
+}
+
+.owl-nav {
+    text-align: center;
+    font-weight: bold;
+}
+
+.owl-prev {
+    margin: 0 3px;
+}
+
+.owl-prev:focus,
+.owl-next:focus {
+    outline: -webkit-focus-ring-color;
+}
+
+.responsive a {
+    text-decoration: none;
 }
 
 
@@ -130,11 +158,11 @@ hr {
     margin: 50px 10px;
 }
 
-.card {
+.card-img {
     border-radius: 20px;
     vertical-align: middle;
     border-style: none;
-    height: 370px;
+    height: 270px;
 }
 
 .all-work {
@@ -281,7 +309,7 @@ section nav {
 
 footer {
     background-image: url(../imgs/footer.jpg);
-    background-size: cover;
+    background-size: contain;
     height: 100%;
 }
 
@@ -291,7 +319,7 @@ footer .footer-right {
 }
 
 footer .footer-left {
-    margin-top: 120px;
+    margin-top: 150px;
     height: 50px;
 }
 
