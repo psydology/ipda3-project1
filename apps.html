@@ -27,13 +27,13 @@
     <link rel="stylesheet" href="app/css/owl.theme.default.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="app/css/animate.css" />
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="app/css/style.css">
 
 
 </head>
 
 <body>
-
     <!-- header
         ================================================== -->
     <header>
@@ -42,25 +42,25 @@
                 <img src="app/imgs/logo2.png" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">الرئيسية <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="work.html">Our Work</a>
+                        <a class="nav-link" href="work.html">الخدمات</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="articles.html">Articles</a>
+                        <a class="nav-link" href="articles.html">المقالات</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="apps.html">Aplications</a>
+                        <a class="nav-link" href="apps.html">أعمالنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">About us</a>
+                        <a class="nav-link" href="about-us.html">موضوعات</a>
                     </li>
 
 
@@ -93,17 +93,17 @@
         </div>
         <div class="about-app">
             <p>خد لفه </p>
-            <div class="owl-carousel owl-theme nonloop">
-                <div class="item" data-merge="1">
+            <div class="card-carousel">
+                <div class="my-card">
                     <img src="app/imgs/slide-one.png" alt="" />
                 </div>
-                <div class="item" data-merge="1">
+                <div class="my-card">
                     <img src="app/imgs/Slider-two.png" alt="" />
                 </div>
-                <div class="item" data-merge="1">
+                <div class="my-card">
                     <img src="app/imgs/slider-three.png" alt="" />
                 </div>
-                <div class="item" data-merge="1">
+                <div class="my-card">
                     <img src="app/imgs/Slider-four.png" alt="" />
                 </div>
 
@@ -155,58 +155,54 @@
     </footer>
     <!-- JS
             ================================================== -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js" integrity="sha384-a9xOd0rz8w0J8zqj1qJic7GPFfyMfoiuDjC9rqXlVOcGO/dmRqzMn34gZYDTel8k" crossorigin="anonymous"></script>
     <script type="text/javascript" src="app/js/owl.carousel.js"></script>
     <script src="app/js/wow.min.js"></script>
+    <script type="text/javascript" src="app/js/script.js"></script>
     <script>
-        new WOW().init();
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.owl-carousel').owlCarousel({
-                stagePadding: 50,
-                loop: true,
-                margin: 10,
-                nav: true,
-                rtl: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    1000: {
-                        items: 5
-                    }
-                }
-            });
-            // $('.owl-carousel').owlCarousel({
-            //     center: true,
-            //     items: 2,
-            //     loop: true,
-            //     margin: 10,
-            //     rtl: true,
-            //     responsive: {
-            //         600: {
-            //             items: 4
-            //         }
-            //     }
-            // });
-            // $('.nonloop').owlCarousel({
-            //     center: true,
-            //     items: 2,
-            //     loop: false,
-            //     margin: 10,
-            //     responsive: {
-            //         600: {
-            //             items: 4
-            //         }
-            //     }
-            // });
+        $num = $('.my-card').length;
+        $even = $num / 2;
+        $odd = ($num + 1) / 2;
 
+        if ($num % 2 == 0) {
+            $('.my-card:nth-child(' + $even + ')').addClass('active');
+            $('.my-card:nth-child(' + $even + ')').prev().addClass('prev');
+            $('.my-card:nth-child(' + $even + ')').next().addClass('next');
+        } else {
+            $('.my-card:nth-child(' + $odd + ')').addClass('active');
+            $('.my-card:nth-child(' + $odd + ')').prev().addClass('prev');
+            $('.my-card:nth-child(' + $odd + ')').next().addClass('next');
+        }
+
+        $('.my-card').click(function() {
+            $slide = $('.active').width();
+            console.log($('.active').position().left);
+
+            if ($(this).hasClass('next')) {
+                $('.card-carousel').stop(false, true).animate({
+                    left: '-=' + $slide
+                });
+            } else if ($(this).hasClass('prev')) {
+                $('.card-carousel').stop(false, true).animate({
+                    left: '+=' + $slide
+                });
+            }
+
+            $(this).removeClass('prev next');
+            $(this).siblings().removeClass('prev active next');
+
+            $(this).addClass('active');
+            $(this).prev().addClass('prev');
+            $(this).next().addClass('next');
+        });
+        $('html body').keydown(function(e) {
+            if (e.keyCode == 37) { // left
+                $('.active').prev().trigger('click');
+            } else if (e.keyCode == 39) { // right
+                $('.active').next().trigger('click');
+            }
         });
     </script>
 
